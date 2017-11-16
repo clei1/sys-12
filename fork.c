@@ -4,11 +4,14 @@
 #include <time.h>
 
 int main(){
-  
+  srand(time(NULL));
+
   printf("Initial message before forking\n");
   int f = -1;
   f = fork();
+
   if(f != 0){
+    rand();
     f = fork();
   }
 
@@ -17,8 +20,7 @@ int main(){
   if(f == 0){
     //child process
     printf("pid: %d\n", getpid());
-    srand(time(NULL));
-    sleeptime = rand() % 15 + 5;
+    sleeptime = rand() % 16 + 5;
     printf("sleep time: %d \n", sleeptime);
     sleep(sleeptime);
     printf("pid: %d \tfinished sleeping\n", getpid());
