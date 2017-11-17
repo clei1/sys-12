@@ -1,7 +1,7 @@
 all: fork.c
 	gcc fork.c
 
-run: all
+run: a.out
 	./a.out
 
 clean:
